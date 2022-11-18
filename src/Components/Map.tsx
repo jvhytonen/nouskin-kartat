@@ -25,7 +25,6 @@ const NouskiMaps = () => {
     id: 'google-map-script',
     googleMapsApiKey: process.env.REACT_APP_API_KEY!
   })
-  console.log(process.env.REACT_APP_API_KEY)
   return isLoaded ? (
       <GoogleMap
         mapContainerStyle={containerStyle}
