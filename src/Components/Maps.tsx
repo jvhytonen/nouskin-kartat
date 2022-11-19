@@ -1,7 +1,8 @@
 import { useReducer, useState } from 'react';
-import { GoogleMap, useJsApiLoader, Polygon, Marker } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Polygon, Marker, Rectangle } from '@react-google-maps/api';
 import { orienteeringMaps as oMaps } from '../data/orienteering-maps';
 import { schoolMaps as sMaps } from '../data/school-maps';
+import { embargo } from '../data/embargo';
 import Modal from './Modal'
 
 const containerStyle = {
@@ -69,7 +70,7 @@ const Maps = () => {
       center={center}
       zoom={10}
     >
-      <div className='h-1/6 w-1/5 absolute top-2 right-2 rounded-lg bg-red-700 p-3 bg-gray-200'>
+      <div className='h-1/6 w-1/5 absolute top-2 right-2 rounded-lg p-3 bg-gray-200'>
         <div className='font-bold mb-4'>
           Näytä
         </div>
@@ -90,6 +91,9 @@ const Maps = () => {
           )
         })}
       </div> : null }
+
+       <Rectangle bounds={embargo.bounds} options={embargo.options} onClick={(event => dispatch({ type: 'show-modal', payload: embargo}))} />
+
       {/* School maps are shown only in case the checkbox of Koulukartat is checked */}
       {showSchoolMaps ? 
       <div>

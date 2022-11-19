@@ -22,7 +22,7 @@ export const orienteeringMaps = [
       mapMaker: "Ari Anjala, Marius Mazulis, Jukka Pohjonen, Esko Savonen Kiintorastikartta",
       scale: "1:10 000 & 1: 15 000",
       description: "Kartalla järjestetty mm. KLL 2010, ja KLL 2002",
-      mapUrl: 'https://iknv.fi/wp-content/uploads/2021/04/Vatula5.jpg',
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/vatula.jpg',
       coordinates: [
         { lat: 61.6810072, lng: 22.9363632 },
         { lat: 61.6803559, lng: 22.9887199 },
@@ -59,6 +59,7 @@ export const orienteeringMaps = [
       mapMaker: "Jukka Pohjonen, Ari Anjala, Arvo Paulin",
       scale: "1:10 000 & 1: 4 000",
       description: "Sprinttikartta kylpylästä. Suunnistuskartta Teiharjusta (mm. Viestiliigan finaali 2020)",
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/teiharju.jpg',
       coordinates: [
         { lng: 23.0153275, lat: 61.7696780 },
         { lng: 23.0306053, lat: 61.7734931 },
@@ -76,6 +77,7 @@ export const orienteeringMaps = [
       mapMaker: "Jukka Pohjonen, Arvo Paulin, Esko Savonen, Jarmo Pikkarainen",
       scale: "1:10 000 & 1: 15 000",
       description: "Jämin alueen kartta. Jämillä järjestetään vuosittain Jämi Suunnistusmaraton.",
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/jami.jpg',
       coordinates: [
         { lng: 22.7992058, lat: 61.7479097 },
         { lng: 22.7792931, lat: 61.7504720 },
@@ -92,6 +94,7 @@ export const orienteeringMaps = [
       mapMaker: "Topias Helminen",
       scale: "1:10 000",
       description: "Uusi kartta, jossa myös kiintorastit.",
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/riitiala.jpg',
       coordinates: [
         { lng: 22.9774761, lat: 61.8696704 },
         { lng: 23.0045128, lat: 61.8851612 },
@@ -128,6 +131,7 @@ export const orienteeringMaps = [
       mapMaker: "Ari Anjala",
       scale: "1:10 000",
       description: "Luhalahden hienot maastot. HUOM! Suurin osa alueesta harjoituskiellossa vuoden 2025 SM-viestiin asti. Tarkista harjoituskieltoalue Suunnistusliiton karttarekisteristä!",
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/vainanvuori.jpg',
       coordinates: [
         { lng: 23.3043194, lat: 61.7754414 },
         { lng: 23.3101559, lat: 61.7713193 },
