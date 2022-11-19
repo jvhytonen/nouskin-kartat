@@ -22,6 +22,7 @@ export const orienteeringMaps = [
       mapMaker: "Ari Anjala, Marius Mazulis, Jukka Pohjonen, Esko Savonen Kiintorastikartta",
       scale: "1:10 000 & 1: 15 000",
       description: "Kartalla järjestetty mm. KLL 2010, ja KLL 2002",
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2021/04/Vatula5.jpg',
       coordinates: [
         { lat: 61.6810072, lng: 22.9363632 },
         { lat: 61.6803559, lng: 22.9887199 },
