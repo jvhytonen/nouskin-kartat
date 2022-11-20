@@ -1,6 +1,3 @@
-import { Data } from "@react-google-maps/api"
-import { orienteeringMapType } from "../data/orienteering-maps"
-
 
 interface ModalDataType {
     name?: string,

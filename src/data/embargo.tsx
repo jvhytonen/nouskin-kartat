@@ -1,7 +1,7 @@
 export const embargo = {
     id:1,
-    name: "SM-viesti 2025 - harjoituskieltoalue",
-    description: "Nouski järjestää suunnistuksen SM-viestin vuonna 2025 Luhalahden alueella. Tämän johdosta alueella on harjoituskieltoalue, jossa SM-viestiin osallistuvat eivät saa harjoitella ennen tapahtumaa. Katso harjoituskiellon tarkka alue ja lisätietoja Suunnistusliiton karttarekisteristä. ",
+    heading: "SM-viesti 2025 - harjoituskieltoalue",
+    text: "Nouski järjestää suunnistuksen SM-viestin vuonna 2025 Luhalahden alueella. Tämän johdosta alueella on harjoituskieltoalue, jossa SM-viestiin osallistuvat eivät saa harjoitella ennen tapahtumaa. Katso harjoituskiellon tarkka alue ja lisätietoja Suunnistusliiton karttarekisteristä. ",
     bounds: {
         north: 61.780713,
         south: 61.763890,
