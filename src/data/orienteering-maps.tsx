@@ -130,7 +130,7 @@ export const orienteeringMaps = [
       year: "2019",
       mapMaker: "Ari Anjala",
       scale: "1:10 000",
-      description: "Luhalahden hienot maastot. HUOM! Suurin osa alueesta harjoituskiellossa vuoden 2025 SM-viestiin asti. Tarkista harjoituskieltoalue Suunnistusliiton karttarekisteristä!",
+      description: "Luhalahden hienot maastot. HUOM! Huomattava osa alueesta harjoituskiellossa vuoden 2025 SM-viestiin asti. Tarkista harjoituskieltoalue Suunnistusliiton karttarekisteristä!",
       mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/vainanvuori.jpg',
       coordinates: [
         { lng: 23.3043194, lat: 61.7754414 },

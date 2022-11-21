@@ -17,9 +17,9 @@ const center = {
 };
 
 export type handleModalClosingType = () => void 
+export type handleMouseOverType = (e: google.maps.MapMouseEvent) => void | undefined
 
-
-const Maps = () => {
+const Maps = (data:any) => {
   const [showModal, setShowModal] = useState<boolean>(false)
   const [showEmbargoModal, setShowEmbargoModal] = useState<boolean>(false)
   const [showSchoolMaps, setShowSchoolMaps] = useState<boolean>(true)
@@ -30,7 +30,7 @@ const Maps = () => {
   // For loading Google Maps. 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: process.env.REACT_APP_API_KEY!
+    googleMapsApiKey: data.mapApiKey
   })
 
   // Options for the Polygons
@@ -40,7 +40,7 @@ const Maps = () => {
     strokeColor: "#2b407a",
     strokeOpacity: 1,
     strokeWeight: 2,
-    cursor: 'pointer'
+    cursor: 'pointer',
   }
 
   const initialState = {
@@ -79,8 +79,9 @@ const Maps = () => {
   
   const handleModalClosing:handleModalClosingType = () => {
     dispatch({ type: 'close-modal' })
-  }
- 
+  } 
+  
+  
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
@@ -130,15 +131,12 @@ const Maps = () => {
 
       {/*Modal area */}
       {showModal ?
-        <div className='absolute top-20 left-20 h-3/5 w-3/5'>
+        <div className='absolute top-10 left-10 h-3/5 w-3/5'>
           {/* The button to close the modal */}
-          <div className='absolute top-2 right-2 h-8 w-5 text-xl font-bold text-center text-gray-300 cursor-pointer hover:bg-gray-200 hover:text-black' onClick={() => handleModalClosing()}>X</div>
-          <Modal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} /> </div> : null
+          <Modal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} close={handleModalClosing}  /> </div> : null
       }
       {showEmbargoModal ?
         <div className='absolute top-20 left-20 h-2/5 w-2/5'>
-          {/* The button to close the modal */}
-          <div className='absolute top-2 right-2 h-8 w-5 text-xl font-bold text-center text-gray-300 cursor-pointer hover:bg-gray-200 hover:text-black' onClick={(event) => dispatch({ type: 'close-modal' })}>X</div>
           <EmbargoModal close={handleModalClosing} />
         </div>
         : null}

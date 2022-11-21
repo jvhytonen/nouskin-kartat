@@ -1,3 +1,5 @@
+import {handleModalClosingType} from './Maps'
+import CloseModal from './CloseModal'
 
 interface ModalDataType {
     name?: string,
@@ -6,13 +8,15 @@ interface ModalDataType {
     scale?: string,
     description?: string,
     mapUrl: string
+    close: handleModalClosingType
 }
 
-const Modal = ({ name, mapMaker, year, scale, description, mapUrl }: ModalDataType) => {
+const Modal = ({ name, mapMaker, year, scale, description, mapUrl, close }: ModalDataType) => {
     return (
         <div className='h-full w-full bg-slate-100 rounded-lg'>
             <div className='h-[20%] w-full pl-5 flex text-4xl border-b-2 border-gray-200 items-center'>
-                <h1>{name}</h1>
+                <h1 className='font-serif'>{name}</h1>
+                <CloseModal close={close}/>
             </div>
             {mapMaker || scale || year ?
             <div className='h-2/5 flex border-b-2 border-gray-200'>
