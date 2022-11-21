@@ -19,9 +19,9 @@ export const orienteeringMaps = [
       id: 2,
       name: "Vatula/Kirkkojärvi",
       year: "2011",
-      mapMaker: "Ari Anjala, Marius Mazulis, Jukka Pohjonen, Esko Savonen Kiintorastikartta",
+      mapMaker: "A.Anjala, M.Mazulis, J.Pohjonen, E.Savonen",
       scale: "1:10 000 & 1: 15 000",
-      description: "Kartalla järjestetty mm. KLL 2010, ja KLL 2002",
+      description: "Kartalla järjestetty mm. KLL 2010, ja KLL 2002. Myös kiintorastikartta",
       mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/vatula.jpg',
       coordinates: [
         { lat: 61.6810072, lng: 22.9363632 },

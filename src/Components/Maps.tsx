@@ -6,9 +6,10 @@ import { embargo } from '../data/embargo';
 import Modal from './Modal'
 import EmbargoModal from './EmbargoModal'
 
+
 const containerStyle = {
-  width: '800px',
-  height: '800px'
+  width: '100%',
+  height: '100%',
 };
 
 const center = {
@@ -16,10 +17,10 @@ const center = {
   lng: 23.071493
 };
 
-export type handleModalClosingType = () => void 
+export type handleModalClosingType = () => void
 export type handleMouseOverType = (e: google.maps.MapMouseEvent) => void | undefined
 
-const Maps = (data:any) => {
+const Maps = (data: any) => {
   const [showModal, setShowModal] = useState<boolean>(false)
   const [showEmbargoModal, setShowEmbargoModal] = useState<boolean>(false)
   const [showSchoolMaps, setShowSchoolMaps] = useState<boolean>(true)
@@ -76,12 +77,12 @@ const Maps = (data:any) => {
     }
   }
   const [state, dispatch] = useReducer(reducer, initialState);
-  
-  const handleModalClosing:handleModalClosingType = () => {
+
+  const handleModalClosing: handleModalClosingType = () => {
     dispatch({ type: 'close-modal' })
-  } 
-  
-  
+  }
+
+
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
@@ -89,18 +90,20 @@ const Maps = (data:any) => {
       zoom={10}
     >
       {/**Checkbox area for choosing orienteering maps or school maps. */}
-      <div className='h-1/6 w-1/5 absolute top-2 right-2 rounded-lg p-3 bg-gray-200'>
+      <div className='absolute top-2 right-2 rounded-lg p-2 bg-gray-200 sm:h-3/6 sm:w-2/6 sm:text-xs lg:h-1/5 lg:w-[10%]'>
         <div className='font-bold mb-4'>
           Näytä
         </div>
-        <div>
+        <div className='flex'>
           <input className='mr-1' type="checkbox" checked={showOMaps} name='o-maps' onChange={() => setShowOMaps(!showOMaps)} />
           <label htmlFor='o-maps'>Suunnistuskartat</label>
-        </div><div>
+        </div><div className='flex'>
           <input className='mr-1' type="checkbox" checked={showSchoolMaps} name='school-maps' onChange={() => setShowSchoolMaps(!showSchoolMaps)} />
           <label htmlFor='o-maps'>Koulukartat</label>
         </div>
       </div>
+
+
 
       {/* Orienteering maps are shown only in case the checkbox of Suunnistuskartat is checked */}
       {showOMaps ?
@@ -131,12 +134,12 @@ const Maps = (data:any) => {
 
       {/*Modal area */}
       {showModal ?
-        <div className='absolute top-10 left-10 h-3/5 w-3/5'>
+        <div className='absolute top-5 left-5 sm:w-4/6'>
           {/* The button to close the modal */}
-          <Modal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} close={handleModalClosing}  /> </div> : null
+          <Modal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} close={handleModalClosing} /> </div> : null
       }
       {showEmbargoModal ?
-        <div className='absolute top-20 left-20 h-2/5 w-2/5'>
+        <div className='absolute top-5 left-5'>
           <EmbargoModal close={handleModalClosing} />
         </div>
         : null}
