@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
 body, html {
     height: 100%;
 }
@@ -26,4 +28,23 @@ https://www.youtube.com/watch?v=lRPguPbovro
     inset:0;
     background: pink;
     opacity: 0.4;
+}
+
+.modal-image {
+    background-image: url('./modalbg.jpg');
+    background-size: cover;
+    background-position: 50% 70%;
+    place-content: center;
+    text-align: center;
+    position:relative;
+    isolation:isolate;
+}
+
+.modal-image::after {
+    content:'';
+    position: absolute;
+    z-index:-1;
+    inset:0;
+    background: white;
+    opacity: 0.9;
 }

@@ -3,7 +3,7 @@ import { GoogleMap, useJsApiLoader, Polygon, Marker, Rectangle } from '@react-go
 import { orienteeringMaps as oMaps } from '../data/orienteering-maps';
 import { schoolMaps as sMaps } from '../data/school-maps';
 import { embargo } from '../data/embargo';
-import Modal from './Modal'
+import BetterModal from './BetterModal'
 import EmbargoModal from './EmbargoModal'
 
 
@@ -134,7 +134,7 @@ const Maps = (data: any) => {
         </div> : null}
 
       {/*Modal area */}
-      {showModal ? <Modal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} close={handleModalClosing} /> : null }
+      {showModal ? <BetterModal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} close={handleModalClosing} /> : null }
       
       {showEmbargoModal ? <EmbargoModal close={handleModalClosing} /> : null}
       <></>

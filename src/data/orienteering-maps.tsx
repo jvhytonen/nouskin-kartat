@@ -6,6 +6,7 @@ export const orienteeringMaps = [
       mapMaker: "Ari Anjala, Jukka Pohjonen",
       scale: "1:10 000",
       description: "Tevaniemessä rastin löytävät vain tosisuunnistajat",
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2021/03/Logo_nouski_keltpuna_kopio.jpg',
       coordinates: [
         { lat: 61.839594, lng: 23.074075 },
         { lat: 61.838541, lng: 23.120970 },
@@ -19,8 +20,8 @@ export const orienteeringMaps = [
       id: 2,
       name: "Vatula/Kirkkojärvi",
       year: "2011",
-      mapMaker: "A.Anjala, M.Mazulis, J.Pohjonen, E.Savonen",
-      scale: "1:10 000 & 1: 15 000",
+      mapMaker: "Anjala, Mazulis, Pohjonen, Savonen",
+      scale: "1:10000, 1:15000",
       description: "Kartalla järjestetty mm. KLL 2010, ja KLL 2002. Myös kiintorastikartta",
       mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/vatula.jpg',
       coordinates: [
@@ -42,6 +43,7 @@ export const orienteeringMaps = [
       mapMaker: "Marius Mazulis ja Jukka Pohjonen",
       scale: "1:10 000 & 1: 5 000",
       description: "Useita sprinttikarttoja (mm. Keskusta, Toivolansaari) ja suunnistuskartta.",
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2021/03/Logo_nouski_keltpuna_kopio.jpg',
       coordinates: [
         { lng: 23.0383301, lat: 61.7769359 },
         { lng: 23.0558395, lat: 61.7569647 },
@@ -54,7 +56,7 @@ export const orienteeringMaps = [
     },
     {
       id: 4,
-      name: "Kylpylä ja Teiharju",
+      name: "Kylpylä/Teiharju",
       year: "2015-2016",
       mapMaker: "Jukka Pohjonen, Ari Anjala, Arvo Paulin",
       scale: "1:10 000",
@@ -74,7 +76,7 @@ export const orienteeringMaps = [
       id: 5,
       name: "Jämi",
       year: "2022",
-      mapMaker: "Jukka Pohjonen, Arvo Paulin, Esko Savonen, Jarmo Pikkarainen",
+      mapMaker: "Pohjonen, Paulin, Savonen, Pikkarainen",
       scale: "1:10 000 & 1: 15 000",
       description: "Jämin suuret kankaat on kokonaan kartoitettu. Jämillä järjestetään vuosittain Jämi Suunnistusmaraton.",
       mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/jami.jpg',
@@ -112,6 +114,7 @@ export const orienteeringMaps = [
       mapMaker: "Ari Anjala",
       scale: "1:10 000",
       description: "Perinteistä ja vaativaa ikaalilaista maastoa",
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2021/03/Logo_nouski_keltpuna_kopio.jpg',
       coordinates: [
         { lng: 23.4467125, lat: 61.8276393 },
         { lng: 23.4562397, lat: 61.8274368 },
@@ -163,6 +166,7 @@ export const orienteeringMaps = [
       mapMaker: "?",
       scale: "1:10 000",
       description: "Nisunperän kartta. Nisunperällä on järjestetty mm. vuoden 1998 FIN5-rastiviikon osakilpailu.",
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2021/03/Logo_nouski_keltpuna_kopio.jpg',
       coordinates: [
         { lng: 23.3550453, lat: 61.7455872 },
         { lng: 23.3911800, lat: 61.7456308 },
@@ -180,6 +184,7 @@ export const orienteeringMaps = [
       mapMaker: "Ari Anjala",
       scale: "1:10 000",
       description: "Kartalla järjestettiin mm. vuoden 1998 FIN5-rastiviikon osakilpailu",
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2021/03/Logo_nouski_keltpuna_kopio.jpg',
       coordinates: [
         { lng: 23.3121300, lat: 61.7533135 },
         { lng: 23.3147049, lat: 61.7416969 },
