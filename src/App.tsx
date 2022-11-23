@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Maps from './Components/Maps'
 import Header from './Components/Header';
+import Info from './Components/Info';
 import DesktopInfo from './Components/DesktopInfo';
 import { fetchApiKey } from './http-requests/fetch-api-key'
 
@@ -28,16 +29,21 @@ function App() {
     getKey()
   })
   return (
-    <div className='h-full w-full'>
+     <div className='bg-gradient-to-b from-blue-200 to-blue-400 xl:h-full w-full'>
       <div className="grid grid-cols-12 grid-rows-6 gap-3 h-full">
-        <div className='bg-purple-700 col-start-2 col-end-12 row-start-1 row-span-1 lg:col-start-2 lg:col-end-12'>
-          {/* <Header/> */}Header
+        {/* The bg-image of the header is handled in App.css */}
+        <div className='bg-image col-start-1 col-span-12 row-start-1 row-span-1 xl:row-start-1 xl:row-span-2'>
+          <Header />
         </div>
-        <div className='bg-green-300 col-start-2 col-end-12 row-start-2 row-span-1'>
-         <DesktopInfo/> 
-          </div>
-        <div className='bg-red-600 col-start-2 col-end-12 row-start-3 row-span-4'>
+        <div className='ml-8 mb-8 col-start-2 col-end-12 row-start-2 row-span-4 xl:col-start-1 xl:col-end-7 xl:row-start-3 xl:row-span-4 border-black border-4 rounded-md'>
           {apiKeyLoaded ? <Maps mapApiKey={apikey} /> : <h1>{loadingInfo}</h1>}
+        </div>
+         {/* This will only be shown with larger viewports */}
+        <div className='hidden xl:grid xl:col-start-7 xl:col-span-4 xl:row-start-3 xl:row-span-2'>
+          <DesktopInfo/>
+        </div>
+        <div className='col-start-1 col-span-12 row-start-6 xl:col-start-10 xl:col-span-3 xl:row-start-5 xl:row-span-2'>
+          <Info />
         </div>
       </div>
     </div>
@@ -45,6 +51,3 @@ function App() {
 }
 
 export default App;
-
-
-// {apiKeyLoaded ? <Maps mapApiKey={apikey} /> : <h1>{loadingInfo}</h1>}

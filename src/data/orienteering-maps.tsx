@@ -57,7 +57,7 @@ export const orienteeringMaps = [
       name: "Kylpylä ja Teiharju",
       year: "2015-2016",
       mapMaker: "Jukka Pohjonen, Ari Anjala, Arvo Paulin",
-      scale: "1:10 000 & 1: 4 000",
+      scale: "1:10 000",
       description: "Sprinttikartta kylpylästä. Suunnistuskartta Teiharjusta (mm. Viestiliigan finaali 2020)",
       mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/teiharju.jpg',
       coordinates: [
@@ -76,7 +76,7 @@ export const orienteeringMaps = [
       year: "2022",
       mapMaker: "Jukka Pohjonen, Arvo Paulin, Esko Savonen, Jarmo Pikkarainen",
       scale: "1:10 000 & 1: 15 000",
-      description: "Jämin alueen kartta. Jämillä järjestetään vuosittain Jämi Suunnistusmaraton.",
+      description: "Jämin suuret kankaat on kokonaan kartoitettu. Jämillä järjestetään vuosittain Jämi Suunnistusmaraton.",
       mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/jami.jpg',
       coordinates: [
         { lng: 22.7992058, lat: 61.7479097 },
@@ -126,11 +126,11 @@ export const orienteeringMaps = [
     },
     {
       id: 8,
-      name: "Väinänvuori, Konsonvuori, Himoistenvuoret",
+      name: "Luhalahti",
       year: "2019",
       mapMaker: "Ari Anjala",
       scale: "1:10 000",
-      description: "Luhalahden hienot maastot. HUOM! Huomattava osa alueesta harjoituskiellossa vuoden 2025 SM-viestiin asti. Tarkista harjoituskieltoalue Suunnistusliiton karttarekisteristä!",
+      description: "Väinänvuori, Konsonvuori, Himoistenvuoret. Iso osa alueesta harjoituskiellossa vuoden 2025 SM-viestiin asti.",
       mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/vainanvuori.jpg',
       coordinates: [
         { lng: 23.3043194, lat: 61.7754414 },

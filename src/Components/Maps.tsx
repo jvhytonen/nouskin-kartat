@@ -57,6 +57,7 @@ const Maps = (data: any) => {
   const reducer = (state: any, action: any) => {
     if (action.type === 'show-modal') {
       setShowModal(true)
+      setShowEmbargoModal(false)
       return {
         name: action.payload.name,
         mapMaker: action.payload.mapMaker,
@@ -90,7 +91,7 @@ const Maps = (data: any) => {
       zoom={10}
     >
       {/**Checkbox area for choosing orienteering maps or school maps. */}
-      <div className='absolute top-2 right-2 rounded-lg p-2 bg-gray-200 sm:h-3/6 sm:w-2/6 sm:text-xs lg:h-1/5 lg:w-[10%]'>
+      <div className='absolute top-2 right-2 rounded-lg p-2 bg-gray-200'>
         <div className='font-bold mb-4'>
           Näytä
         </div>
@@ -133,16 +134,9 @@ const Maps = (data: any) => {
         </div> : null}
 
       {/*Modal area */}
-      {showModal ?
-        <div className='absolute top-5 left-5 sm:w-4/6'>
-          {/* The button to close the modal */}
-          <Modal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} close={handleModalClosing} /> </div> : null
-      }
-      {showEmbargoModal ?
-        <div className='absolute top-5 left-5'>
-          <EmbargoModal close={handleModalClosing} />
-        </div>
-        : null}
+      {showModal ? <Modal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} close={handleModalClosing} /> : null }
+      
+      {showEmbargoModal ? <EmbargoModal close={handleModalClosing} /> : null}
       <></>
     </GoogleMap>
   ) : <h1>An error occurred</h1>

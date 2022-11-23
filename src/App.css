@@ -1,3 +1,29 @@
-body {
+body, html {
     height: 100%;
+}
+
+#root {
+    height: 100%;
+}
+/* This background-image trick is brought to you by CSS-guru Kevin Powell 
+https://www.youtube.com/watch?v=lRPguPbovro
+*/
+.bg-image {
+    background-image: url('./forest.jpg');
+    background-size: cover;
+    background-position: 50% 70%;
+    color: white;
+    place-content: center;
+    text-align: center;
+    position:relative;
+    isolation:isolate;
+}
+
+.bg-image::after {
+    content:'';
+    position: absolute;
+    z-index:-1;
+    inset:0;
+    background: pink;
+    opacity: 0.4;
 }
