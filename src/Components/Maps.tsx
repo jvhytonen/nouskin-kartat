@@ -3,9 +3,14 @@ import { GoogleMap, useJsApiLoader, Polygon, Marker, Rectangle } from '@react-go
 import { orienteeringMaps as oMaps } from '../data/orienteering-maps';
 import { schoolMaps as sMaps } from '../data/school-maps';
 import { embargo } from '../data/embargo';
-import BetterModal from './BetterModal'
+import Modal from './Modal'
 import EmbargoModal from './EmbargoModal'
 
+
+/**
+ * Google Maps-component. Here are all states needed to run the map and the modals. 
+ * 
+ */
 
 const containerStyle = {
   width: '100%',
@@ -83,7 +88,6 @@ const Maps = (data: any) => {
     dispatch({ type: 'close-modal' })
   }
 
-
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
@@ -104,8 +108,6 @@ const Maps = (data: any) => {
         </div>
       </div>
 
-
-
       {/* Orienteering maps are shown only in case the checkbox of Suunnistuskartat is checked */}
       {showOMaps ?
         <div>
@@ -117,8 +119,8 @@ const Maps = (data: any) => {
         </div> : null}
 
       {/*Special embargo area in northeastern Ikaalinen*/}
-      {/*Embargo ends when the race is over. There is "a dead man's switch" to make sure the embargo is not shown after the race is over, e.g. in case admin forgets
-        to remove it or (s)he vanishes.*/ }
+      {/*Embargo ends when the race is over. There is "a dead man's switch" to make sure the embargo is not shown after 
+      the race is over, e.g. in case admin forgets to remove it or (s)he vanishes.*/ }
       {today < embargoStop ?
         <Rectangle bounds={embargo.bounds} options={embargo.options} onClick={(event => dispatch({ type: 'show-embargo', payload: embargo }))} />
         : null}
@@ -134,12 +136,11 @@ const Maps = (data: any) => {
         </div> : null}
 
       {/*Modal area */}
-      {showModal ? <BetterModal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} close={handleModalClosing} /> : null }
+      {showModal ? <Modal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} close={handleModalClosing} /> : null }
       
       {showEmbargoModal ? <EmbargoModal close={handleModalClosing} /> : null}
       <></>
     </GoogleMap>
   ) : <h1>An error occurred</h1>
 }
-
 export default Maps

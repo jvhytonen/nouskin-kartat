@@ -1,3 +1,7 @@
+/**
+ * This object contains all the information about the orienteering maps. 
+ */
+
 export const orienteeringMaps = [
     {
       id: 1,

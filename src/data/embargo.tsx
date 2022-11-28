@@ -1,3 +1,7 @@
+/**
+ * This object contains all the information about the embargo.
+ */
+
 export const embargo = {
     id:1,
     heading: "SM-viesti 2025 - harjoituskieltoalue",

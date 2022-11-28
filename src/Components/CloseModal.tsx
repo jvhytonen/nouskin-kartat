@@ -1,9 +1,9 @@
+import {handleModalClosingType} from './Maps'
+
 /**
  * X -icon that closes the open modal 
  * 
  */
-
-import {handleModalClosingType} from './Maps'
 
 interface CloseModalType {
     close: handleModalClosingType
@@ -11,7 +11,7 @@ interface CloseModalType {
 
 const CloseModal = ({close}: CloseModalType) => {
     return (
-        <div className='absolute right-2 top-50 text-lg font-bold text-gray-500 cursor-pointer hover:bg-gray-200 hover:text-black' onClick={close}>X</div>
+        <div className='absolute right-3 top-3 text-lg font-bold text-gray-500 cursor-pointer hover:bg-gray-200 hover:text-black' onClick={close}>X</div>
     )
 }
 export default CloseModal

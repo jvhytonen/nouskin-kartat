@@ -1,3 +1,8 @@
+/**
+ * This component provides extra info. Shown only on larger viewports as the user should be able to 
+ *  use this simple app even without instructions. 
+ */
+
 const DesktopInfo = () => {
     return (
         <div className='h-full w-full flex flex-col px-5 pb-5'>

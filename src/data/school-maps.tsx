@@ -1,3 +1,7 @@
+/**
+ * This object contains all the information about the school maps.
+ */
+
 export const schoolMaps = [
     {
       id: 1,
