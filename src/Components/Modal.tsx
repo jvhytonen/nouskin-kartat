@@ -1,4 +1,4 @@
-import { handleModalClosingType } from './Maps'
+import { handleModalClosingType, handleFullMapType } from './Maps'
 import CloseModal from './CloseModal'
 
 /**
@@ -14,10 +14,12 @@ interface ModalDataType {
     scale?: string,
     description?: string,
     mapUrl: string
+    fullMapUrl: string
     close: handleModalClosingType
+    showFullMap: handleFullMapType
 }
 
-const Modal = ({ name, mapMaker, year, scale, description, mapUrl, close }: ModalDataType) => {
+const Modal = ({ name, mapMaker, year, scale, description, mapUrl, fullMapUrl, close, showFullMap }: ModalDataType) => {
     return (
          <div className='modal-image fixed top-0 left-0 w-full max-h-full xsm:absolute xsm:top-5 xsm:left-5 xsm:w-64 text-black rounded-lg border-black border-2'>
             <div className='h-auto my-3 w-full pl-[8%] border-b-2 border-gray-300'>
@@ -35,13 +37,16 @@ const Modal = ({ name, mapMaker, year, scale, description, mapUrl, close }: Moda
                 </div>
                 : null}
             <div className='h-60 w-full pt-3'>
-                <div className='h-full w-full text-sm grid grid-cols-12 grid-rows-2 gap-2'>
-                    <div className='col-start-1 col-span-12 flex justify-center'>
+                <div className='h-full w-full text-sm grid grid-cols-12 grid-rows-12 gap-2'>
+                    <div className='col-start-1 col-span-12 row-start-1 row-span-5 flex flex-col items-center'>
                         <img src={mapUrl} alt={name} className='h-28 w-auto border-black border-2' />
                     </div>
-                    <div className='col-start-2 col-end-12 row-start-2 flex items-center'>
+                    <div className='col-start-2 col-end-12 row-start-6 row-span-5 flex items-center'>
                         <h3>{description}</h3>
                     </div>
+                   {fullMapUrl ?  <div onClick={showFullMap} className='col-start-2 col-end-12 row-start-10 row-span-2 flex items-center justify-center text-blue-800 underline italic cursor-pointer'>
+                        <p>Näytä koko kartta</p>
+                    </div> : null }
                 </div>
             </div>
         </div>

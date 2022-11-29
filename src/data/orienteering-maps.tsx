@@ -28,6 +28,7 @@ export const orienteeringMaps = [
       scale: "1:10000, 1:15000",
       description: "Kartalla järjestetty mm. KLL 2010, ja KLL 2002. Myös kiintorastikartta",
       mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/vatula.jpg',
+      fullMapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/Kirkkojarvi_2011.jpg',
       coordinates: [
         { lat: 61.6810072, lng: 22.9363632 },
         { lat: 61.6803559, lng: 22.9887199 },
@@ -66,6 +67,7 @@ export const orienteeringMaps = [
       scale: "1:10 000",
       description: "Sprinttikartta kylpylästä. Suunnistuskartta Teiharjusta (mm. Viestiliigan finaali 2020)",
       mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/teiharju.jpg',
+      fullMapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/Vatulanharju-2018.jpg',
       coordinates: [
         { lng: 23.0153275, lat: 61.7696780 },
         { lng: 23.0306053, lat: 61.7734931 },
@@ -196,7 +198,26 @@ export const orienteeringMaps = [
         { lng: 23.3512688, lat: 61.7555063 },
         { lng: 23.3117867, lat: 61.7534759 }
       ]
-    }
+    },
+    {
+      id: 11,
+      name: "Luomu",
+      year: "2019",
+      mapMaker: "Arvo Paulin",
+      scale: "1:10 000",
+      description: "Peitteinen ja vaativa maasto keskustan eteläpuolella Ikaalisten Luomun kasvihuoneiden takana.",
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/luomu.jpg',
+      fullMapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/luomu2019.jpg',
+      coordinates: [
+        { lng: 23.069677097543956, lat: 61.75254074815014 }, 
+        { lng: 23.071891531599213, lat: 61.747443277633046 },
+        { lng: 23.072861891809282, lat: 61.735907403867955 }, 
+        { lng: 23.079817832983995, lat: 61.7341689124866 }, 
+        { lng: 23.111216178616655, lat: 61.734649294860894},
+        { lng: 23.097062770530037, lat: 61.745101476431415},
+        { lng: 23.077354270521106, lat: 61.751320784962836}
+      ]                   
+    }                     
   ]
 
   export interface orienteeringMapType {

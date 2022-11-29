@@ -5,7 +5,7 @@ import { schoolMaps as sMaps } from '../data/school-maps';
 import { embargo } from '../data/embargo';
 import Modal from './Modal'
 import EmbargoModal from './EmbargoModal'
-
+import FullMap from './FullMap'
 
 /**
  * Google Maps-component. Here are all states needed to run the map and the modals. 
@@ -23,6 +23,7 @@ const center = {
 };
 
 export type handleModalClosingType = () => void
+export type handleFullMapType = () => void
 export type handleMouseOverType = (e: google.maps.MapMouseEvent) => void | undefined
 
 const Maps = (data: any) => {
@@ -30,6 +31,7 @@ const Maps = (data: any) => {
   const [showEmbargoModal, setShowEmbargoModal] = useState<boolean>(false)
   const [showSchoolMaps, setShowSchoolMaps] = useState<boolean>(true)
   const [showOMaps, setShowOMaps] = useState<boolean>(true)
+  const [showFullMap, setShowFullMap] = useState<boolean>(false)
   const embargoStop = new Date('2025-09-22')
   const today = new Date()
 
@@ -55,7 +57,8 @@ const Maps = (data: any) => {
     year: '',
     scale: '',
     description: '',
-    mapUrl: ''
+    mapUrl: '',
+    fullMapUrl: ''
   }
 
   // The reducer for handling modal openings/closings and getting the right information into the modal 
@@ -69,7 +72,8 @@ const Maps = (data: any) => {
         year: action.payload.year,
         scale: action.payload.scale,
         description: action.payload.description,
-        mapUrl: action.payload.mapUrl
+        mapUrl: action.payload.mapUrl,
+        fullMapUrl: action.payload.fullMapUrl
       }
     }
     if (action.type === 'close-modal') {
@@ -86,6 +90,9 @@ const Maps = (data: any) => {
 
   const handleModalClosing: handleModalClosingType = () => {
     dispatch({ type: 'close-modal' })
+  }
+  const handleFullMapModal = () => {
+    setShowFullMap(!showFullMap)
   }
 
   return isLoaded ? (
@@ -136,9 +143,11 @@ const Maps = (data: any) => {
         </div> : null}
 
       {/*Modal area */}
-      {showModal ? <Modal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} close={handleModalClosing} /> : null }
-      
+      {showModal ? <Modal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} fullMapUrl={state?.fullMapUrl} close={handleModalClosing} showFullMap={handleFullMapModal}/> : null }
+      {/*Modal showing embargo */}
       {showEmbargoModal ? <EmbargoModal close={handleModalClosing} /> : null}
+      {/*Modal showing full map */}
+      {state?.fullMapUrl && showFullMap ? <FullMap fullMapUrl={state?.fullMapUrl} closeMap={handleFullMapModal} name={state?.name}/> : null}
       <></>
     </GoogleMap>
   ) : <h1>An error occurred</h1>
