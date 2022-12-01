@@ -47,7 +47,7 @@ const Maps = (data: any) => {
     fillOpacity: 0.7,
     strokeColor: "#2b407a",
     strokeOpacity: 1,
-    strokeWeight: 2,
+    strokeWeight: 3,
     cursor: 'pointer',
   }
 
@@ -113,7 +113,7 @@ const Maps = (data: any) => {
         </div><div className='flex items-center justify-around'>
           <input className='mr-1' type="checkbox" checked={showSchoolMaps} name='school-maps' onChange={() => setShowSchoolMaps(!showSchoolMaps)} />
           <label className='w-[75%] mr-1' htmlFor='o-maps'>Koulu- ja spritti</label>
-          <img className='w-[30px] h-auto' src={'./house.svg'} alt='School map'/>
+          <img className='w-[30px] h-auto' src={'./house.png'} alt='School map'/>
         </div>
       </div>
 
@@ -140,7 +140,7 @@ const Maps = (data: any) => {
           {sMaps.map((item) => {
             return (
               <Marker key={item.id} position={item.position} icon={{
-                url: './marker.svg' ,
+                url: './house.png' ,
                 scaledSize: new window.google.maps.Size(40, 40)
               }} onClick={(event) => dispatch({ type: 'show-modal', payload: item })} />
             )

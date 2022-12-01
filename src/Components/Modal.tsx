@@ -21,7 +21,7 @@ interface ModalDataType {
 
 const Modal = ({ name, mapMaker, year, scale, description, mapUrl, fullMapUrl, close, showFullMap }: ModalDataType) => {
     return (
-         <div className='modal-image fixed top-0 left-0 w-full max-h-full xsm:absolute xsm:top-5 xsm:left-5 xsm:w-64 text-black rounded-lg border-black border-2'>
+         <div className='modal-image fixed w-full max-w-[300px] mx-auto text-black rounded-lg border-black border-2'>
             <div className='h-auto my-3 w-full pl-[8%] border-b-2 border-gray-300'>
                 <h1 className='m-y-auto w-3/4 text-left font-serif font-bold text-xl'>{name}</h1>
                  <CloseModal close={close} />
