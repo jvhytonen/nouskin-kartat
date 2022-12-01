@@ -111,7 +111,7 @@ const Maps = (data: any) => {
           <label htmlFor='o-maps'>Suunnistuskartat</label>
         </div><div className='flex'>
           <input className='mr-1' type="checkbox" checked={showSchoolMaps} name='school-maps' onChange={() => setShowSchoolMaps(!showSchoolMaps)} />
-          <label htmlFor='o-maps'>Koulukartat</label>
+          <label htmlFor='o-maps'>Koulu- ja sprittikartat</label>
         </div>
       </div>
 
