@@ -13,9 +13,6 @@ interface FullMapType {
     name: string
 }
 
-const portraitxmpl = 'https://iknv.fi/wp-content/uploads/2022/11/Kirkkojarvi_2011.jpg'
-const landscapexmpl = 'https://iknv.fi/wp-content/uploads/2022/11/Vatulanharju-2018.jpg'
-
 const FullMap = ({ fullMapUrl, closeMap, name }: FullMapType) => {
     const [layout, setLayout] = useState<string | null>(null)
     const div = useRef<HTMLDivElement>(null)
@@ -28,7 +25,6 @@ const FullMap = ({ fullMapUrl, closeMap, name }: FullMapType) => {
             image.src = url
         })
     }
-
 
     useEffect(() => {
         //The height and width of the image must be measured to know the orientation (landscape/portrait) before the full map will be opened. 

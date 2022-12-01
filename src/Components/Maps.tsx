@@ -106,12 +106,14 @@ const Maps = (data: any) => {
         <div className='font-bold mb-4'>
           Näytä
         </div>
-        <div className='flex'>
+        <div className='flex items-center justify-around'>
           <input className='mr-1' type="checkbox" checked={showOMaps} name='o-maps' onChange={() => setShowOMaps(!showOMaps)} />
-          <label htmlFor='o-maps'>Suunnistuskartat</label>
-        </div><div className='flex'>
+          <label className='w-[75%] mr-1' htmlFor='o-maps'>Maastosuunnistus</label>
+          <img className='w-[30px] h-auto' src={'./polyicon.jpg'} alt='Orienteering map'/>
+        </div><div className='flex items-center justify-around'>
           <input className='mr-1' type="checkbox" checked={showSchoolMaps} name='school-maps' onChange={() => setShowSchoolMaps(!showSchoolMaps)} />
-          <label htmlFor='o-maps'>Koulu- ja sprittikartat</label>
+          <label className='w-[75%] mr-1' htmlFor='o-maps'>Koulu- ja spritti</label>
+          <img className='w-[30px] h-auto' src={'./house.svg'} alt='School map'/>
         </div>
       </div>
 
@@ -137,7 +139,10 @@ const Maps = (data: any) => {
         <div>
           {sMaps.map((item) => {
             return (
-              <Marker key={item.id} position={item.position} onClick={(event) => dispatch({ type: 'show-modal', payload: item })} />
+              <Marker key={item.id} position={item.position} icon={{
+                url: './marker.svg' ,
+                scaledSize: new window.google.maps.Size(40, 40)
+              }} onClick={(event) => dispatch({ type: 'show-modal', payload: item })} />
             )
           })}
         </div> : null}
