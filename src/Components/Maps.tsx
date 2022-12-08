@@ -6,6 +6,7 @@ import { embargo } from '../data/embargo';
 import Modal from './Modal'
 import EmbargoModal from './EmbargoModal'
 import FullMap from './FullMap'
+import CheckboxArea from './CheckboxArea';
 
 /**
  * Google Maps-component. Here are all states needed to run the map and the modals. 
@@ -25,6 +26,7 @@ const center = {
 export type handleModalClosingType = () => void
 export type handleFullMapType = () => void
 export type handleMouseOverType = (e: google.maps.MapMouseEvent) => void | undefined
+export type handleCheckboxesType = (type:string) => void
 
 const Maps = (data: any) => {
   const [showModal, setShowModal] = useState<boolean>(false)
@@ -38,7 +40,7 @@ const Maps = (data: any) => {
   // For loading Google Maps. 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: data.mapApiKey
+    googleMapsApiKey: 'AIzaSyCxdVTZ51ZGPstrG61LztxEFqjzGXI9haY'
   })
 
   // Options for the Polygons
@@ -50,7 +52,7 @@ const Maps = (data: any) => {
     strokeWeight: 3,
     cursor: 'pointer',
   }
-
+// Initial state for reducer that is used in modal.
   const initialState = {
     name: '',
     mapMaker: '',
@@ -94,6 +96,14 @@ const Maps = (data: any) => {
   const handleFullMapModal = () => {
     setShowFullMap(!showFullMap)
   }
+  // Handlecheckboxes will show or hide different map types on the map. CheckboxArea is an own component.
+  const handleCheckboxes: handleCheckboxesType = (type) => {
+    if (type === 'oMaps') {
+      setShowOMaps(!showOMaps)
+    } else if (type === 'schoolMaps') {
+      setShowSchoolMaps(!showSchoolMaps)
+    }
+  }
 
   return isLoaded ? (
     <GoogleMap
@@ -102,21 +112,7 @@ const Maps = (data: any) => {
       zoom={10}
     >
       {/**Checkbox area for choosing orienteering maps or school maps. */}
-      <div className='absolute top-2 right-2 rounded-lg p-2 bg-gray-200'>
-        <div className='font-bold mb-4'>
-          Näytä
-        </div>
-        <div className='flex items-center justify-around'>
-          <input className='mr-1' type="checkbox" checked={showOMaps} name='o-maps' onChange={() => setShowOMaps(!showOMaps)} />
-          <label className='w-[75%] mr-1' htmlFor='o-maps'>Maastosuunnistus</label>
-          <img className='w-[30px] h-auto' src={'./polyicon.jpg'} alt='Orienteering map'/>
-        </div><div className='flex items-center justify-around'>
-          <input className='mr-1' type="checkbox" checked={showSchoolMaps} name='school-maps' onChange={() => setShowSchoolMaps(!showSchoolMaps)} />
-          <label className='w-[75%] mr-1' htmlFor='o-maps'>Koulu- ja spritti</label>
-          <img className='w-[30px] h-auto' src={'./house.png'} alt='School map'/>
-        </div>
-      </div>
-
+   <CheckboxArea showOMaps={showOMaps} showSchoolMaps={showSchoolMaps} changeCheckboxValue={handleCheckboxes}/>
       {/* Orienteering maps are shown only in case the checkbox of Suunnistuskartat is checked */}
       {showOMaps ?
         <div>
@@ -126,9 +122,7 @@ const Maps = (data: any) => {
             )
           })}
         </div> : null}
-
-      {/*Special embargo area in northeastern Ikaalinen*/}
-      {/*Embargo ends when the race is over. There is "a dead man's switch" to make sure the embargo is not shown after 
+      {/*Special embargo area in northeastern Ikaalinen. Embargo ends when the race is over. There is "a dead man's switch" to make sure the embargo is not shown after 
       the race is over, e.g. in case admin forgets to remove it or (s)he vanishes.*/ }
       {today < embargoStop ?
         <Rectangle bounds={embargo.bounds} options={embargo.options} onClick={(event => dispatch({ type: 'show-embargo', payload: embargo }))} />

@@ -21,7 +21,8 @@ interface ModalDataType {
 
 const Modal = ({ name, mapMaker, year, scale, description, mapUrl, fullMapUrl, close, showFullMap }: ModalDataType) => {
     return (
-         <div className='modal-image fixed w-full max-w-[300px] mx-auto text-black rounded-lg border-black border-2'>
+        // In md-devices modals position must be fixed so that it will be visible. In md-size the height of the map is lower than with smaller or larger screens.
+         <div className='modal-image relative md:fixed md:max-lg:top-[10%] lg:relative w-full max-w-[300px] mx-auto text-black rounded-lg border-black border-2'>
             <div className='h-auto my-3 w-full pl-[8%] border-b-2 border-gray-300'>
                 <h1 className='m-y-auto w-3/4 text-left font-serif font-bold text-xl'>{name}</h1>
                  <CloseModal close={close} />

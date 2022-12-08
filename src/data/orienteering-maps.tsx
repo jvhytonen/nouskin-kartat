@@ -67,7 +67,7 @@ export const orienteeringMaps = [
       scale: "1:10 000",
       description: "Sprinttikartta kylpylästä. Suunnistuskartta Teiharjusta (mm. Viestiliigan finaali 2020)",
       mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/teiharju.jpg',
-      fullMapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/Vatulanharju-2018.jpg',
+      fullMapUrl: 'https://iknv.fi/wp-content/uploads/2022/12/teiharju_2020.jpg',
       coordinates: [
         { lng: 23.0153275, lat: 61.7696780 },
         { lng: 23.0306053, lat: 61.7734931 },
@@ -80,12 +80,13 @@ export const orienteeringMaps = [
     },
     {
       id: 5,
-      name: "Jämi",
+      name: "Jämi-Pirttikylä",
       year: "2022",
       mapMaker: "Pohjonen, Paulin, Savonen, Pikkarainen",
       scale: "1:10 000 & 1: 15 000",
-      description: "Jämin suuret kankaat on kokonaan kartoitettu. Jämillä järjestetään vuosittain Jämi Suunnistusmaraton.",
+      description: "Jämin suuret kankaat on kokonaan kartoitettu. Eteläpuolella upea Pirttikylän suo-kallioalue. Jämillä järjestetään vuosittain Jämi Suunnistusmaraton.",
       mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/jami.jpg',
+      fullMapUrl: 'https://iknv.fi/wp-content/uploads/2022/12/jami-pirttikyla-2019.jpg',
       coordinates: [
         { lng: 22.7992058, lat: 61.7479097 },
         { lng: 22.7792931, lat: 61.7504720 },
@@ -141,6 +142,7 @@ export const orienteeringMaps = [
       scale: "1:10 000",
       description: "Väinänvuori, Konsonvuori, Himoistenvuoret. Iso osa alueesta harjoituskiellossa vuoden 2025 SM-viestiin asti.",
       mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/vainanvuori.jpg',
+      fullMapUrl: 'https://iknv.fi/wp-content/uploads/2022/12/vainanvuori_2015.jpg',
       coordinates: [
         { lng: 23.3043194, lat: 61.7754414 },
         { lng: 23.3101559, lat: 61.7713193 },
@@ -190,7 +192,8 @@ export const orienteeringMaps = [
       mapMaker: "Ari Anjala",
       scale: "1:10 000",
       description: "Kartalla järjestettiin mm. vuoden 1998 FIN5-rastiviikon osakilpailu",
-      mapUrl: 'https://iknv.fi/wp-content/uploads/2021/03/Logo_nouski_keltpuna_kopio.jpg',
+      mapUrl: 'https://iknv.fi/wp-content/uploads/2022/11/sarkijarvi.jpg',
+      fullMapUrl: 'https://iknv.fi/wp-content/uploads/2022/12/sarkijarvi-2013.jpg',
       coordinates: [
         { lng: 23.3121300, lat: 61.7533135 },
         { lng: 23.3147049, lat: 61.7416969 },
