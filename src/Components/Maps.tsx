@@ -1,7 +1,6 @@
 import { useReducer, useState } from 'react';
 import { GoogleMap, useJsApiLoader, Polygon, Marker, Rectangle } from '@react-google-maps/api';
-import { orienteeringMaps as oMaps } from '../data/orienteering-maps';
-import { schoolMaps as sMaps } from '../data/school-maps';
+import {arrangedMapDataType } from '../App'
 import { embargo } from '../data/embargo';
 import Modal from './Modal'
 import EmbargoModal from './EmbargoModal'
@@ -28,7 +27,7 @@ export type handleFullMapType = () => void
 export type handleMouseOverType = (e: google.maps.MapMouseEvent) => void | undefined
 export type handleCheckboxesType = (type:string) => void
 
-const Maps = (data: any) => {
+const Maps = (data: arrangedMapDataType) => {
   const [showModal, setShowModal] = useState<boolean>(false)
   const [showEmbargoModal, setShowEmbargoModal] = useState<boolean>(false)
   const [showSchoolMaps, setShowSchoolMaps] = useState<boolean>(true)
@@ -36,7 +35,6 @@ const Maps = (data: any) => {
   const [showFullMap, setShowFullMap] = useState<boolean>(false)
   const embargoStop = new Date('2025-09-22')
   const today = new Date()
-
   // For loading Google Maps. 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -59,11 +57,11 @@ const Maps = (data: any) => {
     year: '',
     scale: '',
     description: '',
-    mapUrl: '',
+    smallMapUrl: '',
     fullMapUrl: ''
   }
 
-  // The reducer for handling modal openings/closings and getting the right information into the modal 
+  // Handling modal openings/closings and getting the right information into the modal 
   const reducer = (state: any, action: any) => {
     if (action.type === 'show-modal') {
       setShowModal(true)
@@ -74,7 +72,7 @@ const Maps = (data: any) => {
         year: action.payload.year,
         scale: action.payload.scale,
         description: action.payload.description,
-        mapUrl: action.payload.mapUrl,
+        smallMapUrl: action.payload.smallMapUrl,
         fullMapUrl: action.payload.fullMapUrl
       }
     }
@@ -96,7 +94,7 @@ const Maps = (data: any) => {
   const handleFullMapModal = () => {
     setShowFullMap(!showFullMap)
   }
-  // Handlecheckboxes will show or hide different map types on the map. CheckboxArea is an own component.
+  // Shows or hides different map types on the map. CheckboxArea is an own component.
   const handleCheckboxes: handleCheckboxesType = (type) => {
     if (type === 'oMaps') {
       setShowOMaps(!showOMaps)
@@ -104,7 +102,6 @@ const Maps = (data: any) => {
       setShowSchoolMaps(!showSchoolMaps)
     }
   }
-
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
@@ -114,11 +111,11 @@ const Maps = (data: any) => {
       {/**Checkbox area for choosing orienteering maps or school maps. */}
    <CheckboxArea showOMaps={showOMaps} showSchoolMaps={showSchoolMaps} changeCheckboxValue={handleCheckboxes}/>
       {/* Orienteering maps are shown only in case the checkbox of Suunnistuskartat is checked */}
-      {showOMaps ?
+      {data.forestMaps && showOMaps ?
         <div>
-          {oMaps.map((item) => {
+          {data.forestMaps.map((item) => {
             return (
-              <Polygon key={item.id} paths={item.coordinates} options={polyOptions} onClick={(event) => dispatch({ type: 'show-modal', payload: item })} />
+              <Polygon key={item.id} paths={item.polyCoords} options={polyOptions} onClick={(event) => dispatch({ type: 'show-modal', payload: item })} />
             )
           })}
         </div> : null}
@@ -129,11 +126,11 @@ const Maps = (data: any) => {
         : null}
 
       {/* School maps are shown only in case the checkbox of Koulukartat is checked */}
-      {showSchoolMaps ?
+      {data.schoolMaps && showSchoolMaps ?
         <div>
-          {sMaps.map((item) => {
+          {data.schoolMaps.map((item) => {
             return (
-              <Marker key={item.id} position={item.position} icon={{
+              <Marker key={item.id} position={item.markerCoords} icon={{
                 url: './house.png' ,
                 scaledSize: new window.google.maps.Size(40, 40)
               }} onClick={(event) => dispatch({ type: 'show-modal', payload: item })} />
@@ -142,13 +139,13 @@ const Maps = (data: any) => {
         </div> : null}
 
       {/*Modal area */}
-      {showModal ? <Modal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} mapUrl={state?.mapUrl} fullMapUrl={state?.fullMapUrl} close={handleModalClosing} showFullMap={handleFullMapModal}/> : null }
-      {/*Modal showing embargo */}
+      {showModal ? <Modal name={state?.name} mapMaker={state?.mapMaker} year={state?.year} scale={state?.scale} description={state?.description} smallMapUrl={state?.smallMapUrl} fullMapUrl={state?.fullMapUrl} close={handleModalClosing} showFullMap={handleFullMapModal}/> : null }
+      {/*Modal showing embargo of SM-viesti 2025 */}
       {showEmbargoModal ? <EmbargoModal close={handleModalClosing} /> : null}
       {/*Modal showing full map */}
       {state?.fullMapUrl && showFullMap ? <FullMap fullMapUrl={state?.fullMapUrl} closeMap={handleFullMapModal} name={state?.name}/> : null}
       <></>
     </GoogleMap>
-  ) : <h1>An error occurred</h1>
+  ) : <h1>Loading map...</h1>
 }
 export default Maps

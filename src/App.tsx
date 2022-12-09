@@ -11,13 +11,13 @@ import handleCoordinates, { mapDataType } from "./helpers/handleCoordinates"
  * App-component. The layout is here. 
  */
 
-interface arrangedMapData {
+export interface arrangedMapDataType {
   forestMaps: mapDataType[]
   schoolMaps: mapDataType[]
 }
 
 function App() {
-  const [mapData, setMapData] = useState<arrangedMapData | null>(null)
+  const [mapData, setMapData] = useState<arrangedMapDataType | null>(null)
 
   useEffect(() => {
     const fetchMapdata = async () => {
@@ -43,7 +43,7 @@ function App() {
         </div>
         {/*The Map component. Modals are inside the map. */}
         <div className='ml-8 mb-8 col-start-1 col-end-12 row-start-2 row-span-4 lg:col-start-1 lg:col-end-8 lg:row-start-2 lg:row-span-5 xl:col-start-1 xl:col-end-7 xl:row-start-2 xl:row-span-5 border-black border-4 rounded-md'>
-         <Maps />
+         {mapData != null ? <Maps {...mapData}/> : <h1>Loading data...</h1>}
         </div>
          {/* This will only be shown with larger viewports */}
         <div className='hidden lg:grid lg:col-start-8 lg:col-span-5 lg:row-start-2 lg:row-span-2 xl:col-start-7 xl:col-span-4 xl:row-start-3 xl:row-span-2'>

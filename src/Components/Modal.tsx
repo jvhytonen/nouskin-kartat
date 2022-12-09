@@ -6,6 +6,8 @@ import CloseModal from './CloseModal'
  * the reducer situated in Maps.tsx-component. 
  *   
  */
+// URL to the logo that will be used in modal in case there is no small map from the terrain
+const LOGO_URL = 'https://iknv.fi/wp-content/uploads/2021/03/Logo_nouski_keltpuna_kopio.jpg'
 
 interface ModalDataType {
     name?: string,
@@ -13,13 +15,13 @@ interface ModalDataType {
     year?: string,
     scale?: string,
     description?: string,
-    mapUrl: string
+    smallMapUrl: string
     fullMapUrl: string
     close: handleModalClosingType
     showFullMap: handleFullMapType
 }
 
-const Modal = ({ name, mapMaker, year, scale, description, mapUrl, fullMapUrl, close, showFullMap }: ModalDataType) => {
+const Modal = ({ name, mapMaker, year, scale, description, smallMapUrl, fullMapUrl, close, showFullMap }: ModalDataType) => {
     return (
         // In md-devices modals position must be fixed so that it will be visible. In md-size the height of the map is lower than with smaller or larger screens.
          <div className='modal-image relative md:fixed md:max-lg:top-[10%] lg:relative w-full max-w-[300px] mx-auto text-black rounded-lg border-black border-2'>
@@ -40,7 +42,8 @@ const Modal = ({ name, mapMaker, year, scale, description, mapUrl, fullMapUrl, c
             <div className='h-60 w-full pt-3'>
                 <div className='h-full w-full text-sm grid grid-cols-12 grid-rows-12 gap-2'>
                     <div className='col-start-1 col-span-12 row-start-1 row-span-5 flex flex-col items-center'>
-                        <img src={mapUrl} alt={name} className='h-28 w-auto border-black border-2' />
+                        {/* Logo will be used in case there is no small map to show */}
+                        <img src={smallMapUrl ? smallMapUrl : LOGO_URL} alt={name} className='h-28 w-auto border-black border-2' />
                     </div>
                     <div className='col-start-2 col-end-12 row-start-6 row-span-5 flex items-center'>
                         <h3>{description}</h3>

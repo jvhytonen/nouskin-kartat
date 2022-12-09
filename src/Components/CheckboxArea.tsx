@@ -17,7 +17,7 @@ const CheckboxArea = ({showOMaps, showSchoolMaps, changeCheckboxValue}: CheckBox
             <div className='flex items-center justify-around'>
                 <input className='mr-1' type="checkbox" checked={showOMaps} name='o-maps' onChange={() => changeCheckboxValue('oMaps')} />
                 <label className='w-[75%] mr-1' htmlFor='o-maps'>Maastosuunnistus</label>
-                <img className='w-[30px] h-auto' src={'./polyicon.jpg'} alt='Orienteering map' />
+                <img className='w-[30px] h-auto border-4 border-[#2b407a]' src={'./polyicon.jpg'} alt='Orienteering map' />
             </div><div className='flex items-center justify-around'>
                 <input className='mr-1' type="checkbox" checked={showSchoolMaps} name='school-maps' onChange={() => changeCheckboxValue('schoolMaps')} />
                 <label className='w-[75%] mr-1' htmlFor='o-maps'>Koulu- ja spritti</label>
