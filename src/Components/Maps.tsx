@@ -38,7 +38,8 @@ const Maps = (data: arrangedMapDataType) => {
   // For loading Google Maps. 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'AIzaSyCxdVTZ51ZGPstrG61LztxEFqjzGXI9haY'
+    //The Usage of the api key is restricted to one single domain only. 
+    googleMapsApiKey: 'API-KEY'
   })
 
   // Options for the Polygons
